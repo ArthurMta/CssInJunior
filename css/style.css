@@ -1,0 +1,960 @@
+/* 1_ESTILO_BASE*/
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+/* configs gerais do body */
+body {
+    font-family: 'Alata', 'Arial', sans-serif;
+    /* Fonte principal do Google Fonts */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+html {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+/* 2_HEADER */
+
+
+
+/* Container principal do cabeçalho */
+.cabecalho {
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+
+    padding-left: 5%;
+    padding-right: 5%;
+    gap: 10px;
+
+    background-color: #C4C4C4;
+    box-shadow: 0px 4px 4px 0px #00000040;
+
+    z-index: 3;
+    /* header por cima */
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Estilo do título/logo */
+h1 {
+    display: flex;
+    margin: 0px;
+    align-items: center;
+    word-wrap: normal;
+    font-weight: 400;
+
+    font-size: 40px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: black;
+}
+
+/* nabar container */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+/* lista menu principal do navbar */
+.menucabecalho {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    /* remove marc da lista */
+    list-style-position: inside;
+    gap: 15px;
+    /* Espaçamento entre itens */
+    padding: 0px;
+    margin: 0;
+}
+
+/* links menu principal */
+.menucabecalho li a {
+    color: black;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    font-size: 18px;
+    line-height: 100%;
+}
+
+.menucabecalho li a:hover {
+    background-color: #d0d0d0;
+}
+
+
+
+
+
+/* 3_MENU HAMBURGUER NO CSS */
+
+
+
+
+/* dxo o checkbox oculto antes da responsividade */
+.menu-toggle-checkbox {
+    display: none;
+    /* Completamente invisível */
+}
+
+/* label que funciona como botao do hamburgue aparece apenas no mobile) */
+.menu-toggle-label {
+    display: none;
+    /* Oculto no desktop */
+    flex-direction: column;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 5;
+    /* Acima do overlay */
+}
+
+/* linhas do icone hamburguer */
+.hamburger-line {
+
+    width: 40px;
+    height: 4px;
+    margin: 3px 0;
+
+    background-color: #000000;
+
+    border-radius: 2px;
+}
+
+
+/* menu dropdown simples */
+.mobile-menu-css {
+    position: absolute;
+    /* Pos relativa ao nav */
+
+    top: 100%;
+    /* abaixo do header */
+    right: 0;
+    width: 200px;
+
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    opacity: 0;
+    /* invisível */
+
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 4;
+}
+
+/* menu ativo quando checkbox esta marcado */
+.menu-toggle-checkbox:checked~.mobile-menu-css {
+    opacity: 1;
+    /* fica visivel */
+    visibility: visible;
+    transform: translateY(0);
+    /* volta a posicao normal */
+}
+
+/* lista de links simples */
+.mobile-menu-list {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+
+/* tens da lista */
+.mobile-menu-list li {
+    margin: 0;
+}
+
+/* links simples do dropdown */
+.mobile-menu-list a {
+    display: block;
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.mobile-menu-list li:last-child a {
+    border-bottom: none;
+}
+
+
+
+/* hoversinho simples */
+.mobile-menu-list a:hover {
+    background-color: #f8f9fa;
+}
+
+.mobile-menu-list a {
+    cursor: pointer;
+}
+
+.menu-toggle-label::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.menu-toggle-checkbox:checked+.menu-toggle-label::after {
+    opacity: 1;
+}
+
+/* media query para ativar o menu hamburguer em celular */
+@media only screen and (max-width: 768px) {
+    .menu-toggle-label {
+        display: flex;
+        /* mostra o botao hamburguer */
+        position: relative;
+        /* para posicionar o dropdown corretamente */
+    }
+
+    .menucabecalho {
+        display: none;
+        /* esconde o menu de pc */
+    }
+
+    .cabecalho {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+
+    /* ajusta posicao do dropdown no mobile */
+    .mobile-menu-css {
+        top: calc(100% + 5px);
+        right: -10px;
+    }
+}
+
+
+
+/*  4_SEÇÃO APRESENTAÇÃO */
+
+
+
+/* container principal da secao de apresentacao */
+.paginaUsuario {
+    z-index: 0;
+    background-color: #F3F3F3;
+    display: flex;
+    padding: 4% 8%;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* permite quebra de linha */
+    gap: 30px 70px;
+    /* espaço entre elementos */
+}
+
+.descricao {
+    flex: 1 1 45%;
+    min-width: 300px;
+    /* largura minima para nao quebrar muito */
+    max-width: 50%;
+    /* maximo 50% no desktop */
+    padding: 0;
+}
+
+/* titulo principal da apresentacao */
+.descricao h2 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+/* paragrafo de descricao */
+.descricao p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    /* espacamento entre linhas para melhora legibilidade */
+    text-align: left;
+}
+
+/* minha foto */
+.imgusuario {
+    border-radius: 50%;
+    /* faz ela circular */
+    width: 247px;
+    height: 247px;
+    object-fit: cover;
+
+
+    border: 4px solid #C4C4C4;
+    box-shadow: 4px 4px 4px 0px #00000040;
+}
+
+
+
+/* 5_SEÇÃO DE TOPS DE CARDS */
+
+
+
+/* seção dos cards */
+.paginaTops {
+    z-index: 0;
+    background-color: #FFFFFF;
+    display: flex;
+    padding: 4% 0;
+    flex-direction: row;
+    /* layout lado a lado */
+
+    justify-content: center;
+    align-items: flex-start;
+
+    flex-wrap: nowrap;
+    gap: 0;
+
+    margin: 0 auto;
+    /* Centraliza o container */
+    overflow: visible;
+}
+
+/* hobbies (lado direito) */
+.hobbies-section {
+    flex: 1 1 50%;
+
+    min-width: 350px;
+    max-width: 50%;
+    background-color: white;
+    padding: 40px 20px 40px 40px;
+    /* mais padding a esquerda */
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+
+    text-align: right;
+    overflow: visible;
+}
+
+/* jogos (lado esquerdo) */
+.jogos-section {
+    flex: 1 1 50%;
+
+    min-width: 350px;
+    max-width: 50%;
+    background-color: white;
+    padding: 40px 40px 40px 20px;
+
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    text-align: left;
+    overflow: visible;
+}
+
+
+
+/* 5.1_GRID DE HOBBIES */
+
+
+
+/* grid de hobbies */
+.hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 102px);
+    /* 5 colunas de 102px cada um */
+
+    gap: 10px;
+    margin-top: 20px;
+    justify-self: end;
+    overflow: visible;
+}
+
+
+
+/* 5.1.1 CARDS DOS HOBBIES */
+
+
+
+/* estilo dos cards hobbies */
+.hobby-card {
+    width: 102px;
+    height: 150px;
+    padding: 17px;
+    gap: 10px;
+
+    background-color: #DFDFDF;
+    border-radius: 5px;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    /* texto na parte inferior */
+
+    text-align: center;
+    transition: background-color 0.3s;
+    flex-shrink: 0;
+    flex-grow: 0;
+    box-sizing: border-box;
+    position: relative;
+    box-shadow: 4px 4px 4px 0px #00000040;
+
+    /* configs de texto */
+    font-family: 'Alata', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 110%;
+    letter-spacing: 0%;
+    color: #000000;
+    hyphens: auto;
+    overflow: hidden;
+}
+
+.hobby-card .nome {
+    position: relative;
+}
+
+/* efeitos hover dos cardshobbies */
+.hobby-card:hover {
+    background-color: #c0c0c0;
+    transform: scale(1.80);
+    box-shadow: 6px 6px 12px 0px #00000060;
+    /*shadowzinho*/
+}
+
+/* Overlay escuro no hover (efeito de destaque) */
+.hobby-card:hover::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    /* Cobre todo o card */
+
+    border-radius: 5px;
+    pointer-events: none;
+    /* nao interfere no clique */
+
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.25) 10%, rgba(0, 0, 0, 0.0) 100%);
+    z-index: 0;
+}
+
+/* torna o texto transparente no hover*/
+.hobby-card:hover,
+.hobby-card:hover .nome {
+    color: rgba(0, 0, 0, 0);
+    z-index: 3;
+}
+
+.hobby-card {
+    transition:
+        background-color 0.3s,
+        transform 0.5s,
+        box-shadow 0.2s,
+        color 0.2s;
+    position: relative;
+}
+
+
+
+/* 5.2_CARDS JOGOS */
+
+
+
+/* Grid de jogos (alinhado à esquerda) */
+.jogos-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 102px);
+    gap: 10px;
+    margin-top: 20px;
+    justify-self: start;
+    overflow: visible;
+}
+
+
+
+/* 5.2.1_CARDS JOGOS (COM IMAGENS DE FUNDO) */
+
+
+
+/* Estilo base dos cards de jogos */
+.jogo-card {
+    width: 102px;
+    height: 150px;
+    padding: 17px;
+    gap: 10px;
+    background-color: #DFDFDF;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+    transition: background-color 0.3s;
+    flex-shrink: 0;
+    flex-grow: 0;
+    box-sizing: border-box;
+    position: relative;
+    box-shadow: 4px 4px 4px 0px #00000040;
+}
+
+
+
+/* 5.2.1.0_ANIMACAOZINHA CARD JOGOS */
+
+
+
+.jogo-card:hover {
+    background-color: #c0c0c0;
+    transform: scale(1.9);
+    box-shadow: 6px 6px 12px 0px #00000060;
+    z-index: 3;
+}
+
+.jogo-card:hover::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 5px;
+    pointer-events: none;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 20%, rgba(0, 0, 0, 0.0) 100%);
+}
+
+.jogo-card {
+    transition:
+        background-color 0.3s,
+        transform 0.5s,
+        box-shadow 0.5s;
+}
+
+.jogo-card .nome {
+    transition: color 0.2s;
+}
+
+.jogo-card:hover .nome {
+    color: rgba(0, 0, 0, 0);
+}
+
+.jogo-card .numero,
+.jogo-card .nome {
+    position: relative;
+    z-index: 2;
+}
+
+
+
+/* 5.2.1.1_ELEMENTOS DOS CARDS DE JOGOS */
+
+
+
+/* numeroszinho do ranking */
+.jogo-card .numero {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    width: 19px;
+    height: 44px;
+
+    background-color: #C4C4C4;
+    color: black;
+
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 0;
+
+    border-top-right-radius: 0;
+    opacity: 1;
+    font-family: 'Alata', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.jogo-card .nome {
+    font-family: 'Alata', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 110%;
+    letter-spacing: 0%;
+    color: white;
+    text-align: center;
+
+    margin: 0;
+    padding: 0px;
+    width: 100%;
+    height: auto;
+}
+
+.jogo-card .numero {
+    display: none;
+}
+
+/* mostra o numero apenas nos 3 primeiros cards */
+.jogo-card:nth-child(1) .numero,
+.jogo-card:nth-child(2) .numero,
+.jogo-card:nth-child(3) .numero {
+    display: flex;
+}
+
+
+
+/* 5.2.1.2_IMAGENS DE FUNDO DOS JOGOS */
+
+
+
+.jogo-card:nth-child(1) {
+    background-image: url('../resources/imgJogos/Inscription.jpeg');
+}
+
+.jogo-card:nth-child(2) {
+    background-image: url('../resources/imgJogos/EldenRing.jpeg');
+}
+
+.jogo-card:nth-child(3) {
+    background-image: url('../resources/imgJogos/Mouthwashing.jpeg');
+}
+
+.jogo-card:nth-child(4) {
+    background-image: url('../resources/imgJogos/Blasphemous.jpeg');
+}
+
+.jogo-card:nth-child(5) {
+    background-image: url('../resources/imgJogos/LittleNightmares.jpeg');
+}
+
+
+
+/* 6_TITULOS E SECAO DE FEEDBACK */
+
+
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: #333;
+    font-weight: normal;
+}
+
+/* container da secao de feedback */
+.feedback-section {
+    background-color: white;
+    margin: 0;
+    padding: 50px 40px;
+    border-radius: 0;
+}
+
+/* titulo da secao de feedback */
+.feedback-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #000000;
+    font-weight: normal;
+    text-align: left;
+}
+
+.feedback-form {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* campo de feedback principal */
+.feedback-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: #e8e8e8;
+    color: #666;
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* container para nome e botao na mesma linha */
+.feedback-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+/* campo de nome */
+.feedback-bottom input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: #e8e8e8;
+    color: #666;
+}
+
+.feedback-form input:focus,
+.feedback-form textarea:focus {
+    outline: none;
+    background-color: #f0f0f0;
+}
+
+/* botao de envio */
+.feedback-form button {
+    background-color: #c0c0c0;
+    color: #333;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: flex-end;
+}
+
+.feedback-form button:hover {
+    background-color: #a0a0a0;
+}
+
+
+
+/* 7_FOOTER/RODAPE */
+
+
+
+.rodape {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background: #C4C4C4;
+    padding: 40px;
+    gap: 20px;
+}
+
+.linkrodape {
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.linkrodape a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.linkrodape a:hover {
+    transform: scale(1.1);
+}
+
+.linkrodape img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.rodape>div:last-child {
+    background-color: transparent;
+    padding: 0;
+}
+
+.rodape>div:last-child a {
+    color: #333;
+    font-weight: bold;
+    padding: 12px 24px;
+    background-color: #DFDFDF;
+    color: #333;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+/* forma de acessar a ultima a da div */
+.rodape>div:last-child a:hover {
+    background-color: #343434;
+    color: white;
+}
+
+
+
+/* RESPONSIVIDADE menor que 1200px */
+
+
+
+
+@media (max-width: 1200px) {
+    .paginaUsuario {
+        flex-direction: column;
+        text-align: justify;
+        gap: 30px;
+        padding: 40px 20px;
+    }
+
+    .imgusuario {
+        width: 200px;
+        height: 200px;
+        min-width: 200px;
+        max-width: 200px;
+    }
+
+    .descricao {
+        max-width: 100%;
+        min-width: auto;
+        text-align: center;
+    }
+
+    .descricao h2 {
+        font-size: 2rem;
+    }
+
+    .descricao p {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    .paginaTops {
+        flex-direction: column;
+        padding: 40px 20px;
+        margin: 0;
+        max-width: none;
+        gap: 30px;
+        flex-wrap: wrap;
+        align-self: center;
+        align-items: center;
+    }
+
+    .hobbies-section,
+    .jogos-section {
+        max-width: 100%;
+        min-width: auto;
+        padding: 20px;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hobbies-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 102px);
+        grid-template-rows: repeat(2, 150px);
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hobbies-grid,
+    .jogos-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .hobby-card,
+    .jogo-card {
+        margin: 0;
+    }
+
+    .feedback-section {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+
+
+/* RESPONSIVIDADE pra dispositivos moveis até 480px */
+
+
+
+@media (max-width: 480px) {
+    .imgusuario {
+        width: 150px;
+        height: 150px;
+        min-width: 150px;
+        max-width: 150px;
+    }
+
+    .descricao h2 {
+        font-size: 1.8rem;
+    }
+
+    .descricao p {
+        font-size: 1rem;
+    }
+
+    .paginaTops {
+        padding: 30px 15px;
+        margin: 0;
+        max-width: none;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    .hobbies-grid,
+    .jogos-grid {
+        grid-template-columns: repeat(2, 102px);
+        grid-template-rows: auto;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .hobbies-grid .hobby-card:nth-child(4),
+    .hobbies-grid .hobby-card:nth-child(5) {
+        grid-column: unset;
+        grid-row: unset;
+    }
+
+    .jogos-grid .jogo-card:nth-child(4),
+    .jogos-grid .jogo-card:nth-child(5) {
+        grid-column: unset;
+        grid-row: unset;
+    }
+}

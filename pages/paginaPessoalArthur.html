@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- normalize -->
+    <link rel="stylesheet" href="../css/normalize.css">
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Alata do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata:wght@400&display=swap" rel="stylesheet">
+
+    <title>Arthur Mota</title>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <header>
+        <div class="cabecalho">
+            <!-- Separar o nome pra sumir com o sobrenome em celulares -->
+            <h1>
+                <p>Arthur</p>
+                <p>Mota</p>
+            </h1>
+
+
+            <nav>
+                <ul class="menucabecalho">
+                    <li><a href="https://github.com/ArthurMta" target="_blank">GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/arthur-mota-fernandes/" target="_blank">LinkedIn</a></li>
+                    <li><a href="contato.html" target="_blank">Contato</a></li>
+                </ul>
+
+                <!-- menuhamburguer pra celular -->
+                <input type="checkbox" id="menu-toggle-css" class="menu-toggle-checkbox">
+                <label for="menu-toggle-css" class="menu-toggle-label">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </label>
+
+                <!-- o dropdown do menuhamburguer-->
+                <!-- github, linkedin e pag de ctt -->
+                <div class="mobile-menu-css">
+                    <ul class="mobile-menu-list">
+                        <li><a href="https://github.com/ArthurMta" target="_blank">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/arthur-mota-fernandes/" target="_blank">LinkedIn</a>
+                        </li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+
+        </div>
+    </header>
+
+    <!-- ------------ -->
+
+    <main>
+
+        <div class="paginaUsuario">
+            <img class="imgusuario" src="../resources/images/foto_arthur.jpg" alt="Foto do Arthur">
+            <div class="descricao">
+                <h2>Sobre Mim</h2>
+                <p>Sou <strong>Arthur Mota</strong> e tenho 20 anos.<br>
+                    Atualmente, sou estudante de Sistemas de Informação na UFF e apaixonado por criação de sistemas
+                    desde pequeno.<br>
+                    Adoro programar, especialmente em Java e Python, e sempre estou buscando aprender coisas novas. Nas
+                    horas vagas, gosto de jogar, assistir filmes de ficção científica e sair ao ar livre. Meu objetivo é
+                    me tornar um Project Owner futuramente e mas gosto de explorar todas as áreas para saber como são
+                    primeiramente.</p>
+            </div>
+        </div>
+
+
+        <!-- seção das paginas de lista -->
+        <div class="paginaTops">
+            <div class="hobbies-section">
+                <h3>Hobbies</h3>
+                <!-- grid dos cards de hobbie -->
+                <div class="hobbies-grid">
+                    <div class="hobby-card">
+                        <span class="nome">Programação</span>
+                    </div>
+                    <div class="hobby-card">
+                        <span class="nome">Jogar videogame</span>
+                    </div>
+                    <div class="hobby-card">
+                        <span class="nome">Assistir filmes</span>
+                    </div>
+                    <div class="hobby-card">
+                        <span class="nome">Jogar RPG/Jogos de Tabuleiro</span>
+                    </div>
+                    <div class="hobby-card">
+                        <span class="nome">Ler livros de Filosofia</span>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- lista de jogos grid -->
+            <div class="jogos-section">
+                <h3>Top 5</h3>
+                <div class="jogos-grid">
+                    <div class="jogo-card">
+                        <span class="numero">1</span>
+                        <span class="nome">Inscription</span>
+                    </div>
+                    <div class="jogo-card">
+                        <span class="numero">2</span>
+                        <span class="nome">Elden Ring</span>
+                    </div>
+                    <div class="jogo-card">
+                        <span class="numero">3</span>
+                        <span class="nome">Mouth Washing</span>
+                    </div>
+                    <div class="jogo-card">
+                        <span class="nome">Blasphemous</span>
+                    </div>
+                    <div class="jogo-card">
+                        <span class="nome">Little Nightmares</span>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+
+    <!-- seção feedback -->
+    <div class="feedback-section" id="feedback">
+        <h2>Feedback</h2>
+
+        <form class="feedback-form">
+            <textarea placeholder="Dê um feedback para esse desenvolvedor!" rows="3" required></textarea>
+            <div class="feedback-bottom">
+                <input type="text" placeholder="Digite seu nome aqui" required>
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+
+    </div>
+
+
+    <!-- footerzinho basico -->
+    <footer>
+        <div class="rodape">
+            <nav class="linkrodape">
+                <a href="https://github.com/ArthurMta" target="_blank">
+                    <img src="../resources/icons/gitlabpng.png" alt="GitHub">
+                </a>
+                <a href="https://www.instagram.com/art._.mtnha/" target="_blank">
+                    <img src="../resources/icons/instagram.png" alt="Instagram">
+                </a>
+                <a href="https://www.linkedin.com/in/arthur-mota-fernandes/" target="_blank">
+                    <img src="../resources/icons/linkedin.png" alt="LinkedIn">
+                </a>
+            </nav>
+            <div>
+                <a href="contato.html">Entre em Contato</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
